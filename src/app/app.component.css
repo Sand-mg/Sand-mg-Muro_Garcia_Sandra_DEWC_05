@@ -1,0 +1,21 @@
+h1{
+    margin: 0 auto;
+    margin-bottom: 32px;
+    max-width: 500px;
+    padding-top: 24px;
+    font-size: 32px;
+    }
+
+.contenedor {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+.form-control {
+    margin-left: 16px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

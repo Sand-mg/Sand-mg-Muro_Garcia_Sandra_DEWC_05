@@ -1,0 +1,60 @@
+<section>
+  <h1>{{title}}</h1>
+  
+  <hr>
+  <h2>Parámetros de Configuración del Juego</h2>
+  <form class="contenedor" (ngSubmit)="recogerDatos()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="miNombre" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="miApellido" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="rango">Rango de números aleatorios a generar</label>
+      <input type="number" class="form-control" id="rango" name="rango" [(ngModel)]="rango" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="intentos">Número de intentos</label>
+      <input type="number" class="form-control" id="intentos" name="intentos" [(ngModel)]="intentos" required>
+    </div>
+  
+    <button type="submit">Recoger Datos</button>
+  </form>
+
+  <div *ngIf="mostrarAlerta">
+    Por favor, complete todos los campos del formulario.
+  </div>
+</section>
+
+  <hr>
+
+  <section *ngIf="pulsado">
+    <h2> Ongi Etorri {{miNombre}} {{miApellido}}</h2>
+    <form (ngSubmit)="enviarNumero()">
+      <label for="numero">Introduce un número:</label>
+      <input type="number" id="numero" name="numero" [(ngModel)]="numeroUsuario" required>
+      <button type="submit">Enviar</button>
+    </form>
+    
+    <div>
+      <p>Intentos Restantes: {{intentos}}</p>
+    </div>
+    
+    <div>
+      <p>¿Has Adivinado?: {{adivinado}}</p>
+    </div>
+    
+    <ul *ngIf="intentos == 0 || adivinado == 'SI'">
+      <li *ngFor="let z of numerosIntroducidos">
+        {{ z }}
+      </li>
+      <li>El número correcto era: {{aleatorio}}</li>
+    </ul>
+  </section>
+  
